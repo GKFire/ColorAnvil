@@ -19,7 +19,9 @@ you can donate to help keep this project going! (donation link can be found on t
 (if you have made any contributes to ColorAnvil, you name will be added to a "helpers" or "contributors" text file for all to see.)
 
 https://www.spigotmc.org/resources/coloranvil.65062/
+
 https://www.twitch.tv/ravenrxw/
+
 https://www.spigotmc.org/members/elitegkfire.652024/
 
 ColorAnvil is under the Creative Commons Attribution 4.0 International License.
