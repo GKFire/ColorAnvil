@@ -30,6 +30,10 @@ public class ColorYMLManager {
 				colorYML = YamlConfiguration.loadConfiguration(colorFile);
 				colors = new HashMap<Character, String>();
 				colors.put('o', "#ed7b00");
+				colors.put('l', "#7ba123");
+				colors.put('y', "#c918a0");
+				colors.put('g', "#a8a8a8");
+				colors.put('t', "#13f295");
 				for(int i = 0; i < colors.size(); i++) {
 					Character key = (Character) colors.keySet().toArray()[i];
 					colorYML.set("Color." + key, colors.get(key));

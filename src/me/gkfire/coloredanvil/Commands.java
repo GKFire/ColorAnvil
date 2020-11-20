@@ -104,6 +104,10 @@ public class Commands implements CommandExecutor, TabCompleter {
 							}
 							p.sendMessage("&R Resets all color codes before this");
 							p.sendMessage("");
+							p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7-------&c&lCustom Colors&7-------"));
+							for (Character chr : ColorYMLManager.colors.keySet()) {
+								p.sendMessage("&" + chr + " = " + ChatColor.of(ColorYMLManager.colors.get(chr)) + "Custom Color");
+							}
 						} else {
 							p.sendMessage(ChatColor.RED + "You do not have permission To execute this Command!");
 						}
