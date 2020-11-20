@@ -10,7 +10,9 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import me.gkfire.coloredanvil.extra.CAUpdateManager;
+import me.gkfire.coloredanvil.managers.CAUpdateManager;
+import me.gkfire.coloredanvil.managers.ColorYMLManager;
+import me.gkfire.coloredanvil.managers.WordConfigManager;
 import net.md_5.bungee.api.ChatColor;
 
 public class Main extends JavaPlugin implements Listener {
@@ -26,6 +28,7 @@ public class Main extends JavaPlugin implements Listener {
 		cfile = new File(getDataFolder(), "config.yml");
 		WordConfigManager.setup();
 		WordConfigManager.loadConfig();
+		ColorYMLManager.setup();
 		getServer().getPluginManager().registerEvents(new ColorAnvil(this), this);
 		getServer().getPluginManager().registerEvents(this, this);
 

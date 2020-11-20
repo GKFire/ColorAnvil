@@ -11,6 +11,9 @@ import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import me.gkfire.coloredanvil.managers.ColorYMLManager;
+import me.gkfire.coloredanvil.managers.WordConfigManager;
+
 public class ColorAnvil implements Listener {
 	private Main plugin;
 	
@@ -35,6 +38,7 @@ public class ColorAnvil implements Listener {
 					String loreColored = e.getInventory().getRenameText().replaceFirst("(l)", "");
 					loreColored = loreColored.replace("()", "");
 					
+					loreColored = ColorYMLManager.format(loreColored);
 					loreColored = Utils.checkColorsEnabled(loreColored, plugin, p);
 					if(plugin.getConfig().getBoolean("banWords")) {
 						ArrayList<String> words = WordConfigManager.getWords();
@@ -84,6 +88,7 @@ public class ColorAnvil implements Listener {
 					finish = finish.replace(start, "");
 					if(section <= 0) return;
 					
+					finish = ColorYMLManager.format(finish);
 					finish = Utils.checkColorsEnabled(finish, plugin, p);
 					if(plugin.getConfig().getBoolean("banWords")) {
 						ArrayList<String> words = WordConfigManager.getWords();
@@ -196,7 +201,8 @@ public class ColorAnvil implements Listener {
 				ItemMeta resultMeta = result.getItemMeta();
 
 				String nameColored = e.getInventory().getRenameText();
-
+				
+				nameColored = ColorYMLManager.format(nameColored);
 				nameColored = Utils.checkColorsEnabled(nameColored, plugin, p);
 				if(plugin.getConfig().getBoolean("banWords")) {
 					ArrayList<String> words = WordConfigManager.getWords();

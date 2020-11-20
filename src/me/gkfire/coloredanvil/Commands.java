@@ -11,6 +11,8 @@ import org.bukkit.entity.Player;
 
 import com.google.common.collect.Lists;
 
+import me.gkfire.coloredanvil.managers.ColorYMLManager;
+import me.gkfire.coloredanvil.managers.WordConfigManager;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.ComponentBuilder;
@@ -25,6 +27,7 @@ public class Commands implements CommandExecutor, TabCompleter {
 		plugin = pl;
 	}
 	
+	@SuppressWarnings("deprecation")
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		if(sender instanceof Player) {
@@ -123,12 +126,16 @@ public class Commands implements CommandExecutor, TabCompleter {
 						p.sendMessage(Main.prefix + ChatColor.WHITE + "ColorAnvil Version: " + plugin.getDescription().getVersion());
 						break;
 					case "reload":
-						if(p.hasPermission("ca.configreload")) {
+						if(p.hasPermission("ca.cfgreload")) {
 							try {
 								plugin.reloadConfig();
+								ColorYMLManager.loadColors();
+								WordConfigManager.loadConfig();
 								p.sendMessage(Main.prefix + ChatColor.GREEN + "ColorAnvil Config Reloaded!");
+								p.sendMessage(Main.prefix + ChatColor.GREEN + "colors.yml config Reloaded!");
+								p.sendMessage(Main.prefix + ChatColor.GREEN + "words.yml config reloaded!");
 							} catch (Exception e) {
-								p.sendMessage(Main.prefix + ChatColor.RED + "An Error Happend When Trying To Reload The Config.");
+								p.sendMessage(Main.prefix + ChatColor.RED + "An Error Happend When Trying To Reload The Configs.");
 							}
 							try {
 								WordConfigManager.loadConfig();
