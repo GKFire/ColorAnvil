@@ -1,0 +1,55 @@
+DARK_RED: true
+RED: true
+GOLD: true
+YELLOW: true
+DARK_GREEN: true
+GREEN: true
+AQUA: true
+DARK_AQUA: true
+DARK_BLUE: true
+BLUE: true
+LIGHT_PURPLE: true
+DARK_PURPLE: true
+WHITE: true
+GRAY: true
+DARK_GRAY: true
+BLACK: true
+BOLD: true
+ITALIC: true
+UNDERLINE: true
+STRIKE: true
+MAGIC: true
+RESET: true
+
+CheckForUpdates: true
+disable_Permissions: false
+banWords: true
+
+Permissions:
+ - ca.getLoreSection
+ - ca.setLoreRange
+ - ca.useItemFlags
+ - ca.use.*
+ - ca.use. + Color Name FULL CAPS
+ 
+example:
+
+Correct: ca.use.RED
+          ca.use.GREEN
+          ca.use.DARK_PURPLE
+          ca.use.DARK_RED
+
+Incorrect:
+          ca.use.red
+          ca.use.Red
+          ca.use.DarkGreen
+          ca.use.DarkerPurple
+ 
+ **Same Applies to Lore Use**
+ 
+ 
+ ca.uselore
+ ca.configreload
+
+
+banWordName: &cYou Cannot Use a Banned Word!
