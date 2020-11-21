@@ -1,16 +1,18 @@
-package me.gkfire.coloredanvil.managers;
+package io.github.gkfire.coloranvil.managers;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.Plugin;
 
-import me.gkfire.coloredanvil.Main;
+import io.github.gkfire.coloranvil.Main;
 import net.md_5.bungee.api.ChatColor;
 
 public class ColorYMLManager {
@@ -72,7 +74,15 @@ public class ColorYMLManager {
 		for(String s : list) {
 			Character chr = s.charAt(0);
 			if(colors.containsKey(chr)) continue;
-			colors.put(chr, colorYML.getString("Color." + chr));
+			String value = colorYML.getString("Color." + chr);
+			Pattern pattern = Pattern.compile("#[a-fA-F0-9]{6}");
+			Matcher matcher = pattern.matcher(value);
+			if(matcher.find()) {
+				String hex = value.substring(matcher.start(), matcher.end());
+				colors.put(chr, hex);
+			} else {
+				Bukkit.getLogger().warning(ChatColor.GOLD + "Color pattern " + value + " is not a valid HEX color! ID value &" + chr + " will not work!");
+			}
 		}
 	}
 }

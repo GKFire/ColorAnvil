@@ -1,4 +1,4 @@
-package me.gkfire.coloredanvil.managers;
+package io.github.gkfire.coloranvil.managers;
 
 import java.io.File;
 import java.io.IOException;
@@ -12,8 +12,8 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.Plugin;
 
-import me.gkfire.coloredanvil.Main;
-import me.gkfire.coloredanvil.Utils;
+import io.github.gkfire.coloranvil.Main;
+import io.github.gkfire.coloranvil.Utils;
 
 public class WordConfigManager {
 	

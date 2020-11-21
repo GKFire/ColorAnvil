@@ -1,4 +1,4 @@
-package me.gkfire.coloredanvil;
+package io.github.gkfire.coloranvil;
 
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;

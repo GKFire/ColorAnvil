@@ -1,4 +1,4 @@
-package me.gkfire.coloredanvil;
+package io.github.gkfire.coloranvil;
 
 import java.util.Arrays;
 import java.util.List;
@@ -11,8 +11,8 @@ import org.bukkit.entity.Player;
 
 import com.google.common.collect.Lists;
 
-import me.gkfire.coloredanvil.managers.ColorYMLManager;
-import me.gkfire.coloredanvil.managers.WordConfigManager;
+import io.github.gkfire.coloranvil.managers.ColorYMLManager;
+import io.github.gkfire.coloranvil.managers.WordConfigManager;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.ComponentBuilder;

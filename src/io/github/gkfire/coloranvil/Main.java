@@ -1,4 +1,4 @@
-package me.gkfire.coloredanvil;
+package io.github.gkfire.coloranvil;
 
 import java.io.File;
 import java.util.logging.Level;
@@ -10,9 +10,10 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import me.gkfire.coloredanvil.managers.CAUpdateManager;
-import me.gkfire.coloredanvil.managers.ColorYMLManager;
-import me.gkfire.coloredanvil.managers.WordConfigManager;
+import io.github.gkfire.coloranvil.extras.ColorSign;
+import io.github.gkfire.coloranvil.managers.CAUpdateManager;
+import io.github.gkfire.coloranvil.managers.ColorYMLManager;
+import io.github.gkfire.coloranvil.managers.WordConfigManager;
 import net.md_5.bungee.api.ChatColor;
 
 public class Main extends JavaPlugin implements Listener {
@@ -31,6 +32,7 @@ public class Main extends JavaPlugin implements Listener {
 		ColorYMLManager.setup();
 		getServer().getPluginManager().registerEvents(new ColorAnvil(this), this);
 		getServer().getPluginManager().registerEvents(this, this);
+		getServer().getPluginManager().registerEvents(new ColorSign(this), this);
 
 		getCommand("ca").setExecutor(new Commands(this));
 		getCommand("ca").setTabCompleter(new Commands(this));
@@ -44,11 +46,14 @@ public class Main extends JavaPlugin implements Listener {
 		getLogger().log(Level.INFO, "Subscribe on Youtube!");
 		getLogger().log(Level.INFO, "Follow Me on Twitch!");
 		getLogger().log(Level.INFO, "");
+		getLogger().log(Level.INFO, "Loaded Banned Words: " + WordConfigManager.getWords().size());
+		getLogger().log(Level.INFO, "Loaded Custom Colors: " + ColorYMLManager.colors.size());
+		getLogger().log(Level.INFO, "");
 		CAUpdateManager.checkUpdate(Main.getPlugin(Main.class));
 		if(CAUpdateManager.update == 0) {
 			getLogger().log(Level.INFO, "Unable to Connect To Spigot. Is Spigot Down? or is checking updates disabled?");
 		} else if(CAUpdateManager.update == -1) {
-			getLogger().log(Level.INFO, "This is a Dev Version. REASON: Version is greater than current release version!");
+			getLogger().log(Level.INFO, "You are Currently using a Dev Version.");
 		} else if(CAUpdateManager.update == 1) {
 			getLogger().log(Level.INFO, "There is a newer version of ColorAnvil available on Spigot!");
 		} else if(CAUpdateManager.update == 2) {

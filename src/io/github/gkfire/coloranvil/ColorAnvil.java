@@ -1,4 +1,4 @@
-package me.gkfire.coloredanvil;
+package io.github.gkfire.coloranvil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,8 +11,8 @@ import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import me.gkfire.coloredanvil.managers.ColorYMLManager;
-import me.gkfire.coloredanvil.managers.WordConfigManager;
+import io.github.gkfire.coloranvil.managers.ColorYMLManager;
+import io.github.gkfire.coloranvil.managers.WordConfigManager;
 
 public class ColorAnvil implements Listener {
 	private Main plugin;

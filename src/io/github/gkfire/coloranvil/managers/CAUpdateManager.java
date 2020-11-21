@@ -1,4 +1,4 @@
-package me.gkfire.coloredanvil.managers;
+package io.github.gkfire.coloranvil.managers;
 
 import java.io.IOException;
 import java.io.InputStream;
