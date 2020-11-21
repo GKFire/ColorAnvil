@@ -1,6 +1,6 @@
 # ColorAnvil
 
-ColorAnvil is a simple plugin for Spigot that adds the abiltiy to add color codes to your items. Additional Features for ColorAnvil include: Lore, ItemFlags, Ban Words, and unbreakable. 
+ColorAnvil is a simple plugin for Spigot that adds the abiltiy to add color codes to your items. Additional Features for ColorAnvil include: Lore, ItemFlags, Ban Words, unbreakable, and ColorSign
 
 Rules to using ColorAnvil:
  - Do not redistribute this under your name.
