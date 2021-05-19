@@ -23,6 +23,3 @@ https://www.spigotmc.org/resources/coloranvil.65062/
 https://www.twitch.tv/gkfiredev/
 
 https://www.spigotmc.org/members/elitegkfire.652024/
-
-ColorAnvil is under the Creative Commons Attribution 4.0 International License.
-More information can be found here: https://creativecommons.org/licenses/by/4.0/
