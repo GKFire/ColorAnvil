@@ -4,7 +4,6 @@ import io.github.gkfiredev.colouranvil.implement.ColourCode;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.Plugin;
-import org.yaml.snakeyaml.Yaml;
 
 import java.io.File;
 import java.io.IOException;
@@ -26,6 +25,9 @@ public class ColourConfigManager {
                 }
                 cfg.set("max_lore_count", 20);
                 cfg.set("ban_words", true);
+                cfg.set("disable_colour_permissions", true);
+                cfg.set("disable_lore_permissions", true);
+                cfg.set("check_update", true);
                 saveConfig();
             } catch (IOException e) {
                 e.printStackTrace();

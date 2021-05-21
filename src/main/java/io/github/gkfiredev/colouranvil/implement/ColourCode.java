@@ -1,5 +1,7 @@
 package io.github.gkfiredev.colouranvil.implement;
 
+import io.github.gkfiredev.colouranvil.ColorAnvil;
+import io.github.gkfiredev.colouranvil.files.ColourConfigManager;
 import org.bukkit.entity.Player;
 import org.bukkit.permissions.Permission;
 
@@ -17,6 +19,7 @@ public class ColourCode {
     public ColourCode(Character character, String nameID) {
         this.character = character;
         this.permission = new Permission("ca.colour." + nameID.toLowerCase());
+        this.permission.addParent(ColorAnvil.colourPermission, true);
         this.nameID = nameID.toLowerCase();
         this.register();
     }
@@ -45,11 +48,11 @@ public class ColourCode {
 
 
     public boolean hasPermission(Player pla) {
-        return (pla.hasPermission(this.getPermission()) || pla.hasPermission("ca.colour.*") || pla.isOp());
+        return (pla.hasPermission(this.getPermission()) || pla.hasPermission("ca.colour.*") || pla.isOp() || ColourConfigManager.cfg.getBoolean("disable_colour_permissions"));
     }
 
     public static ArrayList<ColourCode> getColourList() {
-        return new ArrayList<ColourCode>(colours);
+        return colours;
     }
 
 

@@ -2,6 +2,8 @@ package io.github.gkfiredev.colouranvil.listener;
 
 import io.github.gkfiredev.colouranvil.ColorAnvil;
 import io.github.gkfiredev.colouranvil.api.Argument;
+import io.github.gkfiredev.colouranvil.files.BannedWordsManager;
+import io.github.gkfiredev.colouranvil.files.MessagesManager;
 import io.github.gkfiredev.colouranvil.manager.Arguments;
 import io.github.gkfiredev.colouranvil.manager.CustomColoursManager;
 import org.bukkit.entity.Player;
@@ -63,6 +65,15 @@ public class ColourAnvilListener implements Listener {
             }
         }
         ItemMeta meta = result.getItemMeta();
+        for(String word : BannedWordsManager.getBannedWords()) {
+            if(rename.toLowerCase().contains(word.toLowerCase())) {
+                rename = MessagesManager.cfg.getString("warn.banned_word");
+                meta.setDisplayName(rename);
+                result.setItemMeta(meta);
+                ev.setResult(result);
+                return;
+            }
+        }
         String colorName = rename;
         colorName = ColorAnvil.implementColours(pla, colorName);
         colorName = CustomColoursManager.implementCustomColors(colorName);

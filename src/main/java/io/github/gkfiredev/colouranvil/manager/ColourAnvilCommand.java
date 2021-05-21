@@ -14,6 +14,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -77,9 +78,9 @@ public class ColourAnvilCommand implements CommandExecutor, TabCompleter {
     @Override
     public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
         if(args.length == 1) {
-            List<String> options = Arrays.asList("list", "reload", "about");
+            ArrayList<String> options = new ArrayList<String>(Arrays.asList("list", "reload", "about"));
             if(sender instanceof Player) {
-                if(!((Player) sender).hasPermission("ca.*")) options.remove("reload");
+                if(!((Player) sender).hasPermission("ca.*")) options.remove(1);
             }
             List<String> tab = new ArrayList<>();
             for(String s : options) {

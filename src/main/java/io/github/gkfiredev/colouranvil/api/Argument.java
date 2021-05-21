@@ -12,7 +12,7 @@ public class Argument {
         this.prefix = prefix;
     }
 
-    public ItemStack onExecute(Player player, ItemStack input, ItemStack result, String args, String renameText) {
+    public ItemStack onExecute(Player player, ItemStack input, ItemStack result, String arg, String renameText) {
         return result;
     }
 

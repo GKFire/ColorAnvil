@@ -22,6 +22,7 @@ public class MessagesManager {
                 cfg.set("prefix", "§6ColourAnvil§a> §r");
                 cfg.set("error.command.permission", "§cYou do not have permission to use this command");
                 cfg.set("error.command.invalid_argument", "Invalid Argument!");
+                cfg.set("warn.banned_word", "§cYou cannot use a banned word!");
                 saveConfig();
             } catch (IOException e) {
                 e.printStackTrace();

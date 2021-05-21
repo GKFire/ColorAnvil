@@ -9,13 +9,19 @@ import io.github.gkfiredev.colouranvil.implement.BaseCustomColours;
 import io.github.gkfiredev.colouranvil.implement.ColourCode;
 import io.github.gkfiredev.colouranvil.listener.ColourAnvilListener;
 import io.github.gkfiredev.colouranvil.manager.ColourAnvilCommand;
+import io.github.gkfiredev.colouranvil.manager.UpdateManager;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
+import org.bukkit.permissions.Permission;
+import org.bukkit.permissions.PermissionDefault;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class ColorAnvil extends JavaPlugin {
 
-
+    public static final Permission mainPermission = new Permission("ca.*");
+    public static final Permission colourPermission = new Permission("ca.colour.*");
 
 
     @Override
@@ -34,6 +40,19 @@ public final class ColorAnvil extends JavaPlugin {
         getCommand("ca").setExecutor(new ColourAnvilCommand());
         getCommand("ca").setTabCompleter(new ColourAnvilCommand());
         getLogger().info("Release Type: DEV-Build");
+
+
+        mainPermission.setDefault(PermissionDefault.OP);
+        colourPermission.addParent(mainPermission,true);
+
+        int status = UpdateManager.checkUpdate(this);
+        if(status == -1) {
+            this.getLogger().info(MessagesManager.getPrefix() + ChatColor.GOLD + "You are Currently Using a Dev Version of ColorAnvil!");
+        } else if(status == 1) {
+            this.getLogger().info(MessagesManager.getPrefix() + ChatColor.YELLOW + "There is a newer version of ColorAnvil available on Spigot!");
+        } else if(status == 2) {
+            this.getLogger().info(MessagesManager.getPrefix() + ChatColor.GREEN + "ColorAnvil is up to date!");
+        }
 
     }
 

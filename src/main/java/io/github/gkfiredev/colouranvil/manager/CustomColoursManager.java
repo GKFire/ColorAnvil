@@ -40,7 +40,7 @@ public class CustomColoursManager {
     }
 
     public static List<CustomColour> getCustomColourList() {
-        return new ArrayList<>(customColourArrayList);
+        return customColourArrayList;
     }
 
 }

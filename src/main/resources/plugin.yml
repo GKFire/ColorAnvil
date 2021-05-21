@@ -13,3 +13,15 @@ commands:
     aliases:
       - colouranvil
       - coloranvil
+
+permissions:
+  ca.colour.*:
+    children:
+      - ca.colour.black
+      - ca.colour.dark_blue
+      - ca.colour.dark_green
+      - ca.colour.dark_aqua
+      - ca.colour.dark_red
+      - ca.colour.dark_purple
+      - ca.colour.gold
+      - ca.colour.grey
