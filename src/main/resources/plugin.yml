@@ -1,0 +1,15 @@
+name: ColorAnvil
+version: ${project.version}
+main: io.github.gkfiredev.colouranvil.ColorAnvil
+api-version: 1.16
+prefix: ColorAnvil
+authors: [ GKFireDev ]
+description: A Simple Plugin that allows players to add colour to their item's name and lore.
+
+commands:
+  ca:
+    description: Main ColourAnvil Command
+    usage: /ca <argument>
+    aliases:
+      - colouranvil
+      - coloranvil
