@@ -10,14 +10,15 @@ other plugins will be able to register their iwb arguments into ColorAnvil for m
 
 Current Features Added:
 Argument API 1.0
-
-Features Currently in Development:
 Color Codes
 Custom Color Codes
 
-Other Features:
-Gradient Color
+Features Currently in Development:
 Bannable Words
+Configuration Files
+
+Possible Features:
+Gradient Color
 
 
 ColorAnvil is a simple plugin for Spigot that adds the abiltiy to add color codes to your items. Additional Features for ColorAnvil include: Lore, ItemFlags, Ban Words, unbreakable, and ColorSign
