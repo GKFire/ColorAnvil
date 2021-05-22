@@ -1,4 +1,25 @@
-# ColorAnvil
+# ColorAnvil 1.7
+
+This Branch is Dedicated to The 1.7 version of ColorAnvil, which will be completely rewritten.
+
+This is still in early stage. Many Feature of ColorAnvil have not been implemented yet.
+The rewrite will conrain an API for other plugins to interact with ColorAnvil through Arguments.
+Like how typing (l) will create a new lore line, or using (unbreakable) can toggle an items unbreakable value,
+other plugins will be able to register their iwb arguments into ColorAnvil for more customizability.
+
+
+Current Features Added:
+Argument API 1.0
+Color Codes
+Custom Color Codes
+
+Features Currently in Development:
+Bannable Words
+Configuration Files
+
+Possible Features:
+Gradient Color
+
 
 ColorAnvil is a simple plugin for Spigot that adds the abiltiy to add color codes to your items. Additional Features for ColorAnvil include: Lore, ItemFlags, Ban Words, unbreakable, and ColorSign
 
