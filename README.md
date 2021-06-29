@@ -1,16 +1,9 @@
-# ColorAnvil 1.7
-
-This Branch is Dedicated to The 1.7 version of ColorAnvil, which will be completely rewritten.
-
-This is still in early stage. Many Feature of ColorAnvil have not been implemented yet.
-The rewrite will conrain an API for other plugins to interact with ColorAnvil through Arguments.
-Like how typing (l) will create a new lore line, or using (unbreakable) can toggle an items unbreakable value,
-other plugins will be able to register their iwb arguments into ColorAnvil for more customizability.
+# ColourAnvil
 
 
 Current Features Added:
 Argument API 1.0
-Color Codes
+Colour Codes
 Custom Color Codes
 
 Features Currently in Development:
