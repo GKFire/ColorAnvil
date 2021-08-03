@@ -1,7 +1,7 @@
-package io.github.gkfiredev.colouranvil.implement;
+package tech.gkfiredev.colouranvil.implement;
 
-import io.github.gkfiredev.colouranvil.ColorAnvil;
-import io.github.gkfiredev.colouranvil.files.ColourConfigManager;
+import tech.gkfiredev.colouranvil.ColorAnvil;
+import tech.gkfiredev.colouranvil.files.ColourConfigManager;
 import org.bukkit.entity.Player;
 import org.bukkit.permissions.Permission;
 

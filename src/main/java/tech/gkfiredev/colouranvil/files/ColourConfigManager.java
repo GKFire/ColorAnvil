@@ -1,6 +1,6 @@
-package io.github.gkfiredev.colouranvil.files;
+package tech.gkfiredev.colouranvil.files;
 
-import io.github.gkfiredev.colouranvil.implement.ColourCode;
+import tech.gkfiredev.colouranvil.implement.ColourCode;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.Plugin;

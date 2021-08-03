@@ -1,15 +1,23 @@
-package io.github.gkfiredev.colouranvil.files;
+package tech.gkfiredev.colouranvil.files;
 
-import io.github.gkfiredev.colouranvil.implement.ColourCode;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.Plugin;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+/*
+
+This is to manage all words in a config to prevent players from using said words.
+The purpose of this is to make family-friendly servers more family-friendly.
+
+ */
+
+
+
 
 public class BannedWordsManager {
 

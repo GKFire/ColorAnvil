@@ -1,6 +1,6 @@
 name: ColorAnvil
 version: ${project.version}
-main: io.github.gkfiredev.colouranvil.ColorAnvil
+main: tech.gkfiredev.colouranvil.ColorAnvil
 api-version: 1.16
 prefix: ColorAnvil
 authors: [ GKFireDev ]

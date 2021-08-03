@@ -1,22 +1,28 @@
-package io.github.gkfiredev.colouranvil;
+package tech.gkfiredev.colouranvil;
 
-import io.github.gkfiredev.colouranvil.files.BannedWordsManager;
-import io.github.gkfiredev.colouranvil.files.ColourConfigManager;
-import io.github.gkfiredev.colouranvil.files.CustomColoursConfigManager;
-import io.github.gkfiredev.colouranvil.files.MessagesManager;
-import io.github.gkfiredev.colouranvil.implement.BaseArguments;
-import io.github.gkfiredev.colouranvil.implement.BaseCustomColours;
-import io.github.gkfiredev.colouranvil.implement.ColourCode;
-import io.github.gkfiredev.colouranvil.listener.ColourAnvilListener;
-import io.github.gkfiredev.colouranvil.manager.ColourAnvilCommand;
-import io.github.gkfiredev.colouranvil.manager.UpdateManager;
-import org.bukkit.Bukkit;
+import tech.gkfiredev.colouranvil.files.BannedWordsManager;
+import tech.gkfiredev.colouranvil.files.ColourConfigManager;
+import tech.gkfiredev.colouranvil.files.CustomColoursConfigManager;
+import tech.gkfiredev.colouranvil.files.MessagesManager;
+import tech.gkfiredev.colouranvil.implement.BaseArguments;
+import tech.gkfiredev.colouranvil.implement.ColourCode;
+import tech.gkfiredev.colouranvil.listener.ColourAnvilListener;
+import tech.gkfiredev.colouranvil.manager.ColourAnvilCommand;
+import tech.gkfiredev.colouranvil.manager.UpdateManager;
+import org.bstats.bukkit.Metrics;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.permissions.Permission;
 import org.bukkit.permissions.PermissionDefault;
-import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
+
+/*
+
+Registry Manager mostly.
+
+ */
+
+
 
 public final class ColorAnvil extends JavaPlugin {
 
@@ -26,9 +32,12 @@ public final class ColorAnvil extends JavaPlugin {
 
     @Override
     public void onEnable() {
+
+        int pluginID = 11437;
+        Metrics metrics = new Metrics(this, pluginID);
+
         getLogger().info("Registering Base Arguments.");
         BaseArguments.registerBaseArguments();
-        BaseCustomColours.registerCustomColours();
         registerColors();
         getLogger().info("Setting up Config Files..");
         ColourConfigManager.setupConfig(this);
@@ -39,7 +48,7 @@ public final class ColorAnvil extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new ColourAnvilListener(), this);
         getCommand("ca").setExecutor(new ColourAnvilCommand());
         getCommand("ca").setTabCompleter(new ColourAnvilCommand());
-        getLogger().info("Release Type: DEV-Build");
+        getLogger().info("Release Type: RELEASE");
 
 
         mainPermission.setDefault(PermissionDefault.OP);

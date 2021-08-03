@@ -1,11 +1,11 @@
-package io.github.gkfiredev.colouranvil.implement;
+package tech.gkfiredev.colouranvil.implement;
 
-import io.github.gkfiredev.colouranvil.ColorAnvil;
-import io.github.gkfiredev.colouranvil.api.Argument;
-import io.github.gkfiredev.colouranvil.files.BannedWordsManager;
-import io.github.gkfiredev.colouranvil.files.ColourConfigManager;
-import io.github.gkfiredev.colouranvil.files.MessagesManager;
-import io.github.gkfiredev.colouranvil.manager.CustomColoursManager;
+import tech.gkfiredev.colouranvil.ColorAnvil;
+import tech.gkfiredev.colouranvil.api.Argument;
+import tech.gkfiredev.colouranvil.files.BannedWordsManager;
+import tech.gkfiredev.colouranvil.files.ColourConfigManager;
+import tech.gkfiredev.colouranvil.files.MessagesManager;
+import tech.gkfiredev.colouranvil.manager.CustomColoursManager;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
@@ -13,6 +13,14 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.ArrayList;
 import java.util.List;
+
+/*
+
+This class is just for importing all the Default arguments into the plugin.
+
+ */
+
+
 
 public class BaseArguments {
 

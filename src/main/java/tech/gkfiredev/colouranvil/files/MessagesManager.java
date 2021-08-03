@@ -1,4 +1,4 @@
-package io.github.gkfiredev.colouranvil.files;
+package tech.gkfiredev.colouranvil.files;
 
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;

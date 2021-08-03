@@ -1,6 +1,14 @@
-package io.github.gkfiredev.colouranvil.api;
+package tech.gkfiredev.colouranvil.api;
 
-import io.github.gkfiredev.colouranvil.manager.CustomColoursManager;
+import tech.gkfiredev.colouranvil.manager.CustomColoursManager;
+
+/*
+
+    Created for easier color management.
+
+ */
+
+
 
 public class CustomColour {
 

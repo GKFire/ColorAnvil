@@ -1,15 +1,14 @@
-package io.github.gkfiredev.colouranvil.files;
+package tech.gkfiredev.colouranvil.files;
 
-import io.github.gkfiredev.colouranvil.api.CustomColour;
-import io.github.gkfiredev.colouranvil.manager.CustomColoursManager;
+import tech.gkfiredev.colouranvil.api.CustomColour;
+import tech.gkfiredev.colouranvil.manager.CustomColoursManager;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.Plugin;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.List;
+import java.util.Set;
 
 public class CustomColoursConfigManager {
 
@@ -23,15 +22,17 @@ public class CustomColoursConfigManager {
             try {
                 customColourFile.createNewFile();
                 loadConfig();
-                for(CustomColour colour : CustomColoursManager.getCustomColourList()) {
-                    cfg.set("custom_colours." + colour.getCharacter(), colour.getHexValue());
-                }
+                cfg.set("custom_colors.o", "#ed7b00");
+                cfg.set("custom_colors.l", "#7ba123");
+                cfg.set("custom_colors.y", "#c918a0");
+                cfg.set("custom_colors.t", "#13f295");
                 saveConfig();
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
         loadConfig();
+        loadCustomColours();
     }
 
     public static void loadConfig() {
@@ -46,8 +47,14 @@ public class CustomColoursConfigManager {
         }
     }
 
-    public static List<String> getBannedWords() {
-        return cfg.getStringList("banned_words");
+    public static void loadCustomColours() {
+        CustomColoursManager.getCustomColourList().clear();
+        Set<String> values = cfg.getConfigurationSection("custom_colors").getValues(false).keySet();
+        for(String s : values) {
+            Character character = s.charAt(0);
+            CustomColour colour = new CustomColour(character, cfg.getString("custom_colors." + character));
+            colour.register();
+        }
     }
 
 }

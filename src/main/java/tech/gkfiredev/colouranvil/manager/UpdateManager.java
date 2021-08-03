@@ -1,6 +1,6 @@
-package io.github.gkfiredev.colouranvil.manager;
+package tech.gkfiredev.colouranvil.manager;
 
-import io.github.gkfiredev.colouranvil.files.ColourConfigManager;
+import tech.gkfiredev.colouranvil.files.ColourConfigManager;
 import org.bukkit.plugin.Plugin;
 
 import java.io.IOException;
@@ -9,6 +9,12 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Scanner;
 
+
+/*
+
+    Yes. I got lazy and ripped this code straight from the original. With a couple of changes to merge nicely into the plugin.
+
+ */
 public class UpdateManager {
 
     public static int update = 0;

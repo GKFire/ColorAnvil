@@ -1,11 +1,11 @@
-package io.github.gkfiredev.colouranvil.listener;
+package tech.gkfiredev.colouranvil.listener;
 
-import io.github.gkfiredev.colouranvil.ColorAnvil;
-import io.github.gkfiredev.colouranvil.api.Argument;
-import io.github.gkfiredev.colouranvil.files.BannedWordsManager;
-import io.github.gkfiredev.colouranvil.files.MessagesManager;
-import io.github.gkfiredev.colouranvil.manager.Arguments;
-import io.github.gkfiredev.colouranvil.manager.CustomColoursManager;
+import tech.gkfiredev.colouranvil.ColorAnvil;
+import tech.gkfiredev.colouranvil.api.Argument;
+import tech.gkfiredev.colouranvil.files.BannedWordsManager;
+import tech.gkfiredev.colouranvil.files.MessagesManager;
+import tech.gkfiredev.colouranvil.manager.Arguments;
+import tech.gkfiredev.colouranvil.manager.CustomColoursManager;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -41,7 +41,7 @@ public class ColourAnvilListener implements Listener {
 
          */
         if(builder.indexOf("(") == 0){
-            if(builder.indexOf(")") != -1) {
+             if(builder.indexOf(")") != -1) { // The StringBuilder will return -1 if the character is not found in the string.
                 String prefix = builder.substring(builder.indexOf("(") + 1, builder.indexOf(")"));
                 rename = rename.substring(rename.indexOf(")") + 1);
                 ItemStack item = null;

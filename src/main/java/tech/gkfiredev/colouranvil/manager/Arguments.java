@@ -1,6 +1,6 @@
-package io.github.gkfiredev.colouranvil.manager;
+package tech.gkfiredev.colouranvil.manager;
 
-import io.github.gkfiredev.colouranvil.api.Argument;
+import tech.gkfiredev.colouranvil.api.Argument;
 
 import java.util.ArrayList;
 

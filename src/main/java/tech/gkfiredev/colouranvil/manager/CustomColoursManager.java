@@ -1,12 +1,11 @@
-package io.github.gkfiredev.colouranvil.manager;
+package tech.gkfiredev.colouranvil.manager;
 
-import io.github.gkfiredev.colouranvil.api.CustomColour;
+import tech.gkfiredev.colouranvil.api.CustomColour;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Pattern;
 
 public class CustomColoursManager {
 
