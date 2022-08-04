@@ -1,5 +1,6 @@
 package tech.gkfiredev.colouranvil.manager;
 
+import tech.gkfiredev.colouranvil.ColorAnvil;
 import tech.gkfiredev.colouranvil.api.CustomColour;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
@@ -29,7 +30,7 @@ public class CustomColoursManager {
     }
 
     public static String implementCustomColors(String s) {
-        if(Bukkit.getVersion().contains("1.16")) {
+        if(ColorAnvil.newerThan1_15) {
             for(CustomColour colour : customColourArrayList) {
                 s = s.replaceAll("&" + colour.getCharacter().toString(), ChatColor.of(colour.getHexValue()) + "");
             }

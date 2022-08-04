@@ -53,8 +53,8 @@ public class BaseArguments {
                     }
                 }
                 String colorText = renameText;
-                colorText = ColorAnvil.implementColours(player, colorText);
                 colorText = CustomColoursManager.implementCustomColors(colorText);
+                colorText = ColorAnvil.implementColours(player, colorText);
                 lore.set(loreSlot, colorText);
                 meta.setLore(lore);
                 meta.setDisplayName((input.getItemMeta().getDisplayName() == null ? input.getType().name() : input.getItemMeta().getDisplayName()));

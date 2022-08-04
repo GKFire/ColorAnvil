@@ -75,8 +75,8 @@ public class ColourAnvilListener implements Listener {
             }
         }
         String colorName = rename;
-        colorName = ColorAnvil.implementColours(pla, colorName);
         colorName = CustomColoursManager.implementCustomColors(colorName);
+        colorName = ColorAnvil.implementColours(pla, colorName);
         meta.setDisplayName(colorName);
         result.setItemMeta(meta);
         ev.setResult(result);
