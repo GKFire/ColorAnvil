@@ -10,7 +10,6 @@ import tech.gkfiredev.colouranvil.implement.ColourCode;
 import tech.gkfiredev.colouranvil.listener.ColourAnvilListener;
 import tech.gkfiredev.colouranvil.manager.ColourAnvilCommand;
 import tech.gkfiredev.colouranvil.manager.UpdateManager;
-import org.bstats.bukkit.Metrics;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.permissions.Permission;
@@ -36,9 +35,6 @@ public final class ColorAnvil extends JavaPlugin {
     @Override
     public void onEnable() {
 
-        int pluginID = 11437;
-        Metrics metrics = new Metrics(this, pluginID);
-
         getLogger().info("Registering Base Arguments.");
         BaseArguments.registerBaseArguments();
         registerColors();
@@ -60,16 +56,6 @@ public final class ColorAnvil extends JavaPlugin {
         }
         mainPermission.setDefault(PermissionDefault.OP);
         colourPermission.addParent(mainPermission,true);
-
-        int status = UpdateManager.checkUpdate(this);
-        if(status == -1) {
-            this.getLogger().info(MessagesManager.getPrefix() + ChatColor.GOLD + "You are Currently Using a Dev Version of ColorAnvil!");
-        } else if(status == 1) {
-            this.getLogger().info(MessagesManager.getPrefix() + ChatColor.YELLOW + "There is a newer version of ColorAnvil available on Spigot!");
-        } else if(status == 2) {
-            this.getLogger().info(MessagesManager.getPrefix() + ChatColor.GREEN + "ColorAnvil is up to date!");
-        }
-
     }
 
     @Override
@@ -98,23 +84,19 @@ public final class ColorAnvil extends JavaPlugin {
         String buffer = Bukkit.getVersion();
         int i = 0;
         for (; i < buffer.length(); i ++) {
-            if (buffer.charAt(i) == ':') break;
+            if (buffer.charAt(i) == '.') break;
         }
         if (i >= buffer.length()) return false;
 
         int j = i;
         for (; j < buffer.length(); j++) {
-            if (buffer.charAt(j) == ')') break;
+            char ch = buffer.charAt(j);
+            if (ch == ')' || ch == '-') break;
         }
         if (j >= buffer.length()) return false;
-        String versionS = buffer.substring(i + 2, j);
-
-        String buffer_1 = versionS.substring(0,2);
-        String buffer_2 = versionS.substring(2);
-        buffer_2 = buffer_2.replace(".", "");
-
-        float version = Float.parseFloat(buffer_1 + buffer_2);
-        if (version <= 1.15) return false;
+        String versionS = buffer.substring(i + 1, j);
+        int version = Integer.parseInt(versionS);
+        if (version <= 15) return false;
         return true;
     }
 }

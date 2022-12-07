@@ -1,5 +1,6 @@
 package tech.gkfiredev.colouranvil.listener;
 
+import org.bukkit.Material;
 import tech.gkfiredev.colouranvil.ColorAnvil;
 import tech.gkfiredev.colouranvil.api.Argument;
 import tech.gkfiredev.colouranvil.files.BannedWordsManager;
@@ -23,7 +24,8 @@ public class ColourAnvilListener implements Listener {
         String rename = inv.getRenameText();
         ItemStack input = inv.getItem(0);
         ItemStack result = ev.getResult();
-        if(result == null) return;
+        if (result == null) return;
+        if (result.getItemMeta() == null) return;
 
         StringBuilder builder = new StringBuilder(rename);
         /*
@@ -40,33 +42,30 @@ public class ColourAnvilListener implements Listener {
 
 
          */
-        if(builder.indexOf("(") == 0){
-             if(builder.indexOf(")") != -1) { // The StringBuilder will return -1 if the character is not found in the string.
+        if (builder.indexOf("(") == 0){
+             if (builder.indexOf(")") != -1) { // The StringBuilder will return -1 if the character is not found in the string.
                 String prefix = builder.substring(builder.indexOf("(") + 1, builder.indexOf(")"));
                 rename = rename.substring(rename.indexOf(")") + 1);
                 ItemStack item = null;
-                if(prefix.indexOf(":") != -1) {
+                if (prefix.contains(":")) {
                     String[] values = prefix.split(":");
 
-                    if(values.length == 0) return;
-                    if(Arguments.getArgument(values[0]) != null) {
-                        item = Arguments.getArgument(values[0]).onExecute(pla, input, result, (values.length == 1 ? null : values[1]), rename);
-                    }
+                    if (values.length == 0) return;
+                    if (Arguments.getArgument(values[0]) == null) return;
+                    item = Arguments.getArgument(values[0]).onExecute(pla, input, result, (values.length == 1 ? null : values[1]), rename);
                 } else {
-                    if(Arguments.getArgument(prefix) != null) {
-                        Argument argument = Arguments.getArgument(prefix);
-                        item = argument.onExecute(pla, input, result, null, rename);
-                    }
+                    if (Arguments.getArgument(prefix) == null) return;
+                    Argument argument = Arguments.getArgument(prefix);
+                    item = argument.onExecute(pla, input, result, null, rename);
                 }
-                if(item != null) {
-                    ev.setResult(item);
-                }
+                if(item != null) ev.setResult(item);
                 return;
             }
         }
+
         ItemMeta meta = result.getItemMeta();
-        for(String word : BannedWordsManager.getBannedWords()) {
-            if(rename.toLowerCase().contains(word.toLowerCase())) {
+        for (String word : BannedWordsManager.getBannedWords()) {
+            if (rename.toLowerCase().contains(word.toLowerCase())) {
                 rename = MessagesManager.cfg.getString("warn.banned_word");
                 meta.setDisplayName(rename);
                 result.setItemMeta(meta);
